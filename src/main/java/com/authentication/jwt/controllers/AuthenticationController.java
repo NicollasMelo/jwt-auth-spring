@@ -7,6 +7,8 @@ import com.authentication.jwt.DTOS.RegisterUserDto;
 import com.authentication.jwt.entities.User;
 import com.authentication.jwt.services.AuthenticationService;
 import com.authentication.jwt.services.JwtService;
+import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,15 +25,15 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<User> register(@RequestBody User registerUserDto) {
+    public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
         User registeredUser = authenticationService.signup(registerUserDto);
 
         return ResponseEntity.ok(registeredUser);
     }
 
     @GetMapping("/response")
-    public String hello() {
-        return "Olá";
+    public ResponseEntity<String> hello() {
+        return ResponseEntity.ok().body("Ola");
     }
 
     @PostMapping("/login")
