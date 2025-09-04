@@ -31,7 +31,9 @@ public class AuthenticationService {
         User user = new User()
                 .setFullName(input.getFullName())
                 .setEmail(input.getEmail())
+                .setSalary(input.getSalary())
                 .setPassword(passwordEncoder.encode(input.getPassword()));
+
 
         return userRepository.save(user);
     }

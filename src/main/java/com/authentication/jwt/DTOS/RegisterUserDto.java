@@ -1,11 +1,23 @@
 package com.authentication.jwt.DTOS;
 
+import java.math.BigDecimal;
+
 public class RegisterUserDto {
     private String email;
 
     private String password;
 
     private String fullName;
+
+    private BigDecimal salary;
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
+    }
 
     public String getEmail() {
         return email;

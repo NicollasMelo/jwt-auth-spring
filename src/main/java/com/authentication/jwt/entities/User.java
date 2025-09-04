@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +38,9 @@ public class User implements UserDetails {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    @Column(nullable = true, precision = 10, scale = 2)
+    private BigDecimal salary;
 
     public Integer getId() {
         return id;
@@ -131,7 +135,19 @@ public class User implements UserDetails {
         return this;
     }
 
-    public User(Integer id, String fullName, String email, String password, Long expiresIn, Date createdAt, Date updatedAt) {
+    public User() {
+    }
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
+    public User setSalary(BigDecimal salary) {
+        this.salary = salary;
+        return this;
+    }
+
+    public User(Integer id, String fullName, String email, String password, Long expiresIn, Date createdAt, Date updatedAt, BigDecimal salary) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
@@ -139,8 +155,6 @@ public class User implements UserDetails {
         this.expiresIn = expiresIn;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-    }
-
-    public User() {
+        this.salary = salary;
     }
 }
