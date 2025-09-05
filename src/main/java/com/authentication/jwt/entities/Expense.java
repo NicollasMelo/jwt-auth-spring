@@ -16,8 +16,7 @@ public class Expense {
 
     private String description;
     private BigDecimal amount;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate date;
+    private String date;
     private String category;
 
     @ManyToOne
@@ -51,11 +50,11 @@ public class Expense {
         this.amount = amount;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

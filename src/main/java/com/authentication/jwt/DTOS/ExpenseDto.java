@@ -7,7 +7,7 @@ public class ExpenseDto {
 
     private String description;
     private BigDecimal amount;
-    private LocalDate date;
+    private String date;
     private String category;
 
     public String getDescription() {
@@ -26,11 +26,11 @@ public class ExpenseDto {
         this.amount = amount;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
